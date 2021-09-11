@@ -7,58 +7,58 @@
         <p *ngIf="!isDark">DARK<i class="mode ms-3 fa fa-moon"></i></p>
       </div>
     </div>
-    <div class="input-group my-4 search">
+    <div [formGroup]="searchUser" class="input-group my-4 search">
       <input
+        formControlName="name"
         type="text"
         class="form-control text-white p-2"
         placeholder="Search Github Username"
       />
       <div class="input-group-append">
-        <button class="btn btn-primary" type="submit">
+        <button (click)="getUser()" class="btn btn-primary" type="submit">
           <i class="fa fa-search"></i>
         </button>
       </div>
     </div>
     <div class="profile d-flex justify-content-around">
       <div class="mt-5 ms-3">
-        <img
-          src="https://avatars.githubusercontent.com/u/74834972?v=4"
-          alt="p-image"
-        />
+        <img src="{{ img }}" alt="p-image" />
       </div>
       <div class="list-group p-3">
         <div class="list-group-item">
           <div class="d-flex justify-content-between">
-            <h5 class="mb-1">Tom Martin</h5>
-            <small>Joined 21 Nov 2020</small>
+            <h5 class="mb-1">{{ fullName }}</h5>
+            <small>{{ joined }}</small>
           </div>
-          <a href="" class="text-decoration-none">@igtom</a>
+          <a href="" class="text-decoration-none">@{{ username }}</a>
           <div class="mt-2">
-            <small>No Bio Avaible</small>
+            <small>{{ bio }}</small>
           </div>
           <div class="row mt-3 p-2 repo">
             <div class="col">
               Repos
-              <div>5</div>
+              <div>{{ repos }}</div>
             </div>
             <div class="col">
               Followers
-              <div>12</div>
+              <div>{{ followers }}</div>
             </div>
             <div class="col">
               Following
-              <div>200</div>
+              <div>{{ following }}</div>
             </div>
           </div>
           <div class="row mt-3">
             <div class="col">
-              <i class="fa fa-map-marker-alt"></i> Brandenburg
+              <i class="fa fa-map-marker-alt"></i> {{ location }}
             </div>
-            <div class="col link"><i class="fab fa-twitter"></i> Twitter</div>
+            <div class="col link">
+              <i class="fab fa-twitter"></i> {{ twitterName }}
+            </div>
           </div>
           <div class="row mt-3">
-            <div class="col link"><i class="fa fa-link"></i> Website</div>
-            <div class="col"><i class="fa fa-building"></i> Company</div>
+            <div class="col link"><i class="fa fa-link"></i> {{ website }}</div>
+            <div class="col"><i class="fa fa-building"></i> {{ company }}</div>
           </div>
         </div>
       </div>

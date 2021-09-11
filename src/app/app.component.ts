@@ -66,5 +66,6 @@ export class AppComponent implements OnInit {
         this.followers = data.followers;
         this.following = data.following;
       });
+    this.searchUser.reset();
   }
 }

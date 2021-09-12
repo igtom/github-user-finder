@@ -11,6 +11,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatInputModule } from '@angular/material/input';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
 import { MatCardModule } from '@angular/material/card';
 
 import { CardComponent } from './components/card/card.component';
@@ -27,6 +30,8 @@ import { CardComponent } from './components/card/card.component';
     MatButtonModule,
     MatSlideToggleModule,
     MatCardModule,
+    MatInputModule,
+    MatSnackBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

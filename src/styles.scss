@@ -1,10 +1,30 @@
 body {
-  background-color: #141c2f;
   box-sizing: border-box;
   margin: 0;
   font-family: "Inconsolata", monospace;
   color: white;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.mat-slide-toggle-thumb {
+  background-color: orange;
+}
+.mat-slide-toggle-bar {
+  background-color: #fff;
+}
+
+.mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
+  background-color: yellow;
+}
+
+.mat-slide-toggle.mat-checked .mat-slide-toggle-bar {
+  background-color: #fff;
+}

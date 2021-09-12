@@ -1,21 +1,23 @@
 <div class="container">
   <div>
-    <form class="form-control">
-      <input type="text" placeholder="Search.." name="search2" />
+    <form class="form-control" (ngSubmit)="getUserInfos(searchTerm)">
+      <input
+        type="text"
+        placeholder="Search.."
+        name="searchTerm"
+        [(ngModel)]="searchTerm"
+        value="{{ searchTerm }}"
+      />
       <button type="submit"><i class="fa fa-search"></i></button>
     </form>
   </div>
   <div class="card-container">
-    <mat-card class="card">
+    <mat-card class="card" *ngFor="let user of foundUser">
       <mat-card-header class="card-header">
-        <img
-          mat-card-avatar
-          class="card-avatar"
-          src="https://avatars.githubusercontent.com/u/74834972?v=4"
-        />
+        <img mat-card-avatar class="card-avatar" src="{{ user.avatar_url }}" />
         <div>
-          <mat-card-title>Tom Martin</mat-card-title>
-          <a href="#">@igtom</a>
+          <mat-card-title>{{ user.name }}</mat-card-title>
+          <a href="#">@{{ user.login }}</a>
         </div>
       </mat-card-header>
       <div mat-card-content>
@@ -23,41 +25,42 @@
           <mat-card-content class="repo-content">
             <div>
               <h2>Repos</h2>
-              4
+              {{ user.public_repos }}
             </div>
             <div>
               <h2>Followers</h2>
-              23
+              {{ user.followers }}
             </div>
             <div>
               <h2>Following</h2>
-              10
+              {{ user.following }}
             </div>
           </mat-card-content>
         </mat-card>
       </div>
       <mat-card-content>
         <p>
-          The Shiba Inu is the smallest of the six original and distinct spitz
-          breeds of dog from Japan. A small, agile dog that copes very well with
-          mountainous terrain, the Shiba Inu was originally bred for hunting.
+          {{ user.bio || "No Bio" }}
         </p>
       </mat-card-content>
-      <mat-card-actions>
+      <div class="footer">
         <div>
           <button mat-flat-button>
-            <mat-icon>place</mat-icon> Brandenburg
+            <mat-icon>place</mat-icon>
+            {{ user.location || "No Data Available" }}
           </button>
           <button mat-flat-button>
-            <mat-icon>business</mat-icon> PFIT Consult GmbH
+            <mat-icon>business</mat-icon>
+            {{ user.company || "No Data Available" }}
           </button>
         </div>
         <div class="links">
           <button mat-flat-button>
-            <mat-icon>ios_share</mat-icon> igtom.com
+            <mat-icon>view_list</mat-icon>
+            {{ user.blog || "No Data Available" }}
           </button>
         </div>
-      </mat-card-actions>
+      </div>
     </mat-card>
   </div>
 </div>

@@ -21,23 +21,25 @@ export class CardComponent implements OnInit {
   ngOnInit(): void {}
 
   getUserInfos(searchTerm) {
-    this.finder.getUser(searchTerm).subscribe(
-      (user) => {
-        this.foundUser.shift();
-        this.foundUser.push(user);
-        this.searchTerm = '';
-      },
-      (err) => {
-        if (err.status === 404) {
-          this._snackBar.open(
-            `No User with Name: ${this.searchTerm} found`,
-            'Close',
-            {
-              duration: 5000,
-            }
-          );
+    if (searchTerm) {
+      this.finder.getUser(searchTerm).subscribe(
+        (user) => {
+          this.foundUser.shift();
+          this.foundUser.push(user);
+          this.searchTerm = '';
+        },
+        (err) => {
+          if (err.status === 404) {
+            this._snackBar.open(
+              `No User with Name: ${this.searchTerm} found`,
+              'Close',
+              {
+                duration: 5000,
+              }
+            );
+          }
         }
-      }
-    );
+      );
+    }
   }
 }

@@ -61,6 +61,7 @@
       background-color: #141c2f;
       color: #fff;
       border-radius: 25px;
+      max-width: 470px;
       .repo-content {
         display: flex;
         justify-content: space-around;
@@ -71,7 +72,10 @@
         }
       }
     }
-
+    p {
+      text-align: left;
+      margin-left: 1rem;
+    }
     .footer {
       display: flex;
       justify-content: center;

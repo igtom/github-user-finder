@@ -1,14 +1,15 @@
-<mat-toolbar color="primary" class="nav-container">
-  <span>{{ title }}</span>
-  <span class="spacer"></span>
-  <button mat-icon-button>
-    <mat-icon [ngClass]="{ light: !switchMode.isDark }">light_mode</mat-icon>
-  </button>
-  <mat-slide-toggle
-    (change)="switchMode.switchMode()"
-    [checked]="switchMode.isDark"
-  ></mat-slide-toggle>
-  <button mat-icon-button>
-    <mat-icon [ngClass]="{ dark: switchMode.isDark }">dark_mode</mat-icon>
-  </button>
+<mat-toolbar class="nav-container">
+  <h1>{{ title }}</h1>
+  <div class="switcher">
+    <button mat-icon-button>
+      <mat-icon [ngClass]="{ light: !switchMode.isDark }">light_mode</mat-icon>
+    </button>
+    <mat-slide-toggle
+      (change)="switchMode.switchMode()"
+      [checked]="switchMode.isDark"
+    ></mat-slide-toggle>
+    <button mat-icon-button>
+      <mat-icon [ngClass]="{ dark: switchMode.isDark }">dark_mode</mat-icon>
+    </button>
+  </div>
 </mat-toolbar>

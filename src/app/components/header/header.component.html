@@ -1,0 +1,14 @@
+<mat-toolbar color="primary">
+  <span>{{ title }}</span>
+  <span class="spacer"></span>
+  <button mat-icon-button>
+    <mat-icon [ngClass]="{ light: !switchMode.isDark }">light_mode</mat-icon>
+  </button>
+  <mat-slide-toggle
+    (change)="switchMode.switchMode()"
+    [checked]="switchMode.isDark"
+  ></mat-slide-toggle>
+  <button mat-icon-button>
+    <mat-icon [ngClass]="{ dark: switchMode.isDark }">dark_mode</mat-icon>
+  </button>
+</mat-toolbar>

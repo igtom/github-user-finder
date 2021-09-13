@@ -18,7 +18,9 @@ export class CardComponent implements OnInit {
   noUser = false;
   durationInSeconds = 3;
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getUserInfos('igtom');
+  }
 
   getUserInfos(searchTerm) {
     if (searchTerm) {
